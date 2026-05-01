@@ -1,0 +1,6 @@
+Objectives and Success Criteria:
+1. Build a secure web portal for phishing simulations: System supports >=10 concurrent users[cite: 1].
+2. Record and track user performance: Admin dashboard accurately shows responses and progress[cite: 1].
+3. Provide AI or rule-based phishing scenario generation: Each user experiences >=5 unique scenario types per session[cite: 1].
+4. Ensure ethical compliance: 0 real emails sent; fully controlled lab simulation[cite: 1].
+5. Improve user awareness: Users score >=30% improvement between pre and post assessment[cite: 1].
