@@ -1,0 +1,3 @@
+- Abdullah Al Numan: Created requirements baseline, user stories, and UML diagrams (ERD, Use Case, Sequence)[cite: 2].
+- Samiur Rahman: Technology trade-off analysis (Flask, Django, React) and feasibility spike validation[cite: 2].
+- Md Rifat al Mortoza: Prepared revised project controls, milestone plan, and risk register[cite: 2].
