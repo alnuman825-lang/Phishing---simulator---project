@@ -1,0 +1,16 @@
+Section 1 — Requirements baseline[cite: 2]
+
+Functional Requirements:
+- The system shall allow users to log in securely[cite: 2].
+- The system shall present at least 5 different phishing scenarios[cite: 2].
+- The system shall provide immediate feedback after a user interacts with a scenario[cite: 2].
+- The system shall record user scores and progress in a database[cite: 2].
+
+Non-Functional Requirements:
+- Security: User passwords must be hashed, and sessions must be managed securely[cite: 2].
+- Performance: The portal should support at least 10 concurrent users[cite: 2].
+- Usability: The interface must be intuitive for students and staff[cite: 2].
+
+Acceptance Criteria:
+- Successful login redirects to the dashboard[cite: 2].
+- Feedback is displayed within 2 seconds of scenario completion[cite: 2].
