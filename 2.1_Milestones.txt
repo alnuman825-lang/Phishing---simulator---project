@@ -1,4 +1,0 @@
-- Project initiation complete (Week 2): Approved project charter - Owner: Rifat[cite: 1].
-- Design approval (Week 4): System architecture + UI design - Owner: Abdullah[cite: 1].
-- Prototype development (Week 6): Working basic simulator - Owner: Dilraj[cite: 1].
-- Final system completion (Week 10): Fully functional system - Owner: Team[cite: 1].
