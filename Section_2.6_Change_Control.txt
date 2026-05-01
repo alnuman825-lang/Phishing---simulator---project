@@ -1,0 +1,8 @@
+2.6 Change Control Approach
+
+In the event that the project scope needs to be adjusted (e.g., adding a new feature or changing a technology), the following process applies:
+
+1. Identification: The need for change is identified by a team member or the client.
+2. Proposal: A brief description of the change, its impact on the timeline, and technical feasibility is presented to the team.
+3. Approval: The Team Leader (Rifat) and the client must approve the change before it is implemented.
+4. Documentation: The change is recorded in the project's Change Log to maintain transparency.
