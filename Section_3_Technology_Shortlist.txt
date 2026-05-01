@@ -1,0 +1,11 @@
+Section 3 — Technology shortlist and evaluation[cite: 2]
+
+Technology Trade-off Matrix:
+| Criteria | Flask (Selected) | Django | React + Node.js |
+| :--- | :--- | :--- | :--- |
+| Development Speed | High | Medium | Medium |
+| Learning Curve | Low | High | High |
+| Security Features | Moderate | High | Moderate |
+| Team Expertise | High | Low | Medium |
+
+Rationale: Flask was chosen due to its lightweight nature and the team's existing proficiency, allowing for faster delivery within the semester timeline[cite: 2].
