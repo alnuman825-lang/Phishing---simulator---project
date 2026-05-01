@@ -1,0 +1,9 @@
+2.5 Communication Cadence
+
+To ensure the project stays on track, the following communication schedule has been established:
+
+- Weekly Team Meeting: Every Monday via Microsoft Teams to track progress, assign tasks, and resolve blockers. (Output: Meeting minutes).
+- Client Check-in: Bi-weekly email updates or short calls with the project sponsor/client to ensure alignment with requirements.
+- Daily Quick Sync: Informal updates via WhatsApp for immediate technical troubleshooting or quick questions.
+- Sprint Review: Every two weeks, the team will demonstrate completed features (like the login system or UI) to ensure quality.
+- Document Review: All reports and technical documents will undergo a final quality check via Google Docs before submission.
