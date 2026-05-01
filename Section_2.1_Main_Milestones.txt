@@ -1,0 +1,10 @@
+2.1 Main Milestones (Phase Gates)[cite: 1]
+
+| Milestone / Phase Gate | Target Date | Owner | Success Evidence |
+| :--- | :--- | :--- | :--- |
+| Project initiation complete | Week 2 | Rifat | Submitted project charter[cite: 1] |
+| Design approval | Week 4 | Abdullah | System architecture and UI diagrams[cite: 1] |
+| Prototype development | Week 6 | Dilraj | Working basic simulator demo[cite: 1] |
+| Mid-project review | Week 8 | Tanmeet | Feedback incorporated into system[cite: 1] |
+| Final system completion | Week 10 | Team | Fully functional system demo[cite: 1] |
+| Submission & presentation | Week 12 | Team | Final submission confirmation[cite: 1] |
