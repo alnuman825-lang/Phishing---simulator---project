@@ -1,0 +1,8 @@
+1.6 Solution Context (Project Type)[cite: 1]
+
+Project Type: Software Development Project[cite: 1]
+
+Software Project Product Vision:
+- For: CSU students, staff (end users), and system administrators[cite: 1].
+- The solution: A web-based phishing simulation and training portal that presents realistic phishing scenarios and captures user decisions[cite: 1].
+- Provides: Immediate feedback and performance tracking to improve cybersecurity awareness and reduce institutional risk[cite: 1].
