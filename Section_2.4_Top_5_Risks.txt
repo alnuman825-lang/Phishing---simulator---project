@@ -1,0 +1,21 @@
+2.4 Top 5 Risks and Mitigations[cite: 1]
+
+1. Limited time: (High Likelihood / High Impact)
+   Mitigation: Prioritize core features only (MoSCoW method) and maintain a strict weekly schedule.
+   Owner: Md Rifat al Mortoza[cite: 1].
+
+2. Technical skill gaps: (Medium Likelihood / High Impact)
+   Mitigation: Use simple, well-documented tools (Flask/Python) and utilize online learning resources or peer tutoring.
+   Owner: Abdullah Al Numan[cite: 1].
+
+3. Integration issues: (Medium Likelihood / Medium Impact)
+   Mitigation: Conduct regular testing and debugging at each phase of development to catch bugs early.
+   Owner: Dilraj Singh[cite: 1].
+
+4. Poor team coordination: (Medium Likelihood / High Impact)
+   Mitigation: Maintain weekly progress meetings via Teams and use WhatsApp for quick synchronization.
+   Owner: Md Rifat al Mortoza[cite: 1].
+
+5. Ethical/security issues: (Low Likelihood / High Impact)
+   Mitigation: Strictly use simulated data only; ensure no real phishing emails are sent to any users.
+   Owner: Tanmeet Kaur[cite: 1].
