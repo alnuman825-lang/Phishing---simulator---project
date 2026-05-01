@@ -1,0 +1,7 @@
+Section 2 — Models and diagrams[cite: 2]
+
+This section contains the visual architecture of CyberShield:
+- Use Case Diagram: Defines interactions between the Student (End User) and the Admin[cite: 2].
+- Activity Diagram: Shows the workflow from login to scenario completion and feedback[cite: 2].
+- Sequence Diagram: Illustrates the communication between the Frontend, Flask Backend, and MySQL Database[cite: 2].
+- Entity Relationship Diagram (ERD): Detailed database schema showing the relationships between User, Scenario, and Results tables[cite: 2].
