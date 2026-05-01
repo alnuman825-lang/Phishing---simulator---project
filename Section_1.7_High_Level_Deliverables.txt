@@ -1,0 +1,9 @@
+1.7 High-level Deliverables[cite: 1]
+
+Deliverables and Evidence:
+1. Web-based phishing simulator: A functional portal with interactive scenarios (Evidence: Working demo + screenshots)[cite: 1].
+2. User authentication system: Secure login/logout system for students and staff (Evidence: Tested login system + logs)[cite: 1].
+3. Scenario generation module: AI or rule-based module to create phishing content (Evidence: Sample generated scenarios)[cite: 1].
+4. Admin dashboard: A portal for displaying user performance and analytics (Evidence: Dashboard screenshots + demo)[cite: 1].
+5. Training feedback system: UI components providing instant feedback after each simulation (Evidence: UI screenshots + user flow)[cite: 1].
+6. Project documentation: Comprehensive technical and user guides (Evidence: Final report + GitHub repository)[cite: 1].
