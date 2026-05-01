@@ -1,0 +1,14 @@
+Section 5 — Updated Project Controls[cite: 2]
+
+5a. Rolling-Wave Milestones:
+- Sprint 1 (22-May-2026): Core environment setup and database migrations[cite: 2].
+- Sprint 2 (01-Jun-2026): Completion of phishing logic and result tracking[cite: 2].
+- Sprint 3 (08-Jun-2026): Admin tools and final UI polish[cite: 2].
+
+5b. Updated Risk Register:
+- R01 (Database): Potential complexity in tracking multi-step scenarios. Mitigation: Regular schema reviews[cite: 2].
+- R03 (Security): Risk of session hijacking. Mitigation: Implement secure cookies and CSRF protection[cite: 2].
+
+5c. Change Log:
+- 28-Apr-2026: Scope refined to focus on 5 core phishing types[cite: 2].
+- 29-Apr-2026: Finalized MySQL as the primary database for data persistence[cite: 2].
