@@ -1,0 +1,4 @@
+- R01: Database Schema Errors. Complexity in users/scores connection can result in data loss. Mitigation: Schema validation[cite: 2].
+- R02: Logic Inconsistency. Phishing scenarios might fail to give feedback. Mitigation: Explicit logic testing[cite: 2].
+- R03: Security Vulnerabilities. Issues with session management. Mitigation: Use secure auth in Flask[cite: 2].
+- R04: Time Limitations. Deadline pressure. Mitigation: Use MoSCoW prioritization[cite: 2].
