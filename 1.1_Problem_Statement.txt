@@ -1,0 +1,1 @@
+CSU students and staff are increasingly exposed to phishing attacks, yet current training approaches are mostly theoretical and lack practical engagement[cite: 1]. This results in low awareness and higher risk of security breaches[cite: 1]. A simulated phishing environment with real-time feedback will improve user awareness and reduce cybersecurity risks effectively[cite: 1].
