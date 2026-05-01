@@ -1,0 +1,11 @@
+Section 6 — Appendix[cite: 2]
+
+6a. Team Contributions:
+- Abdullah Al Numan: Requirements analysis, User stories, and UML diagrams[cite: 2].
+- Samiur Rahman: Technology evaluation, scoring matrix, and feasibility testing[cite: 2].
+- Md Rifat al Mortoza: Project controls, updated risk assessment, and change management[cite: 2].
+
+6b. Supporting Evidence:
+- Evidence 1: ERD showing relational links between training data and users[cite: 2].
+- Evidence 2: Screenshot of the initial Flask-MySQL connection proof[cite: 2].
+- Evidence 3: Detailed Work Breakdown Structure (WBS) for Assignment 3[cite: 2].
