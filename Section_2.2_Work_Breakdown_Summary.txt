@@ -1,0 +1,10 @@
+2.2 Work Breakdown Summary (Major Work Streams)[cite: 1]
+
+| Work Stream | Description | Owner | Notes |
+| :--- | :--- | :--- | :--- |
+| Project management | Planning, tracking, coordination | Rifat | Oversees progress[cite: 1] |
+| Backend development | Flask server, database, logic | Tanmeet | Core system[cite: 1] |
+| Frontend development | UI/UX design and implementation | Abdullah | User interface[cite: 1] |
+| Scenario design | Phishing content creation | Tanmeet | Training quality[cite: 1] |
+| Testing & QA | Testing functionality and usability | Abdullah | Continuous testing[cite: 1] |
+| Documentation | Reports and technical docs | Dilraj | Final submission[cite: 1] |
