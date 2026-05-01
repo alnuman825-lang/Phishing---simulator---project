@@ -1,0 +1,13 @@
+1.5 Constraints and Assumptions[cite: 1]
+
+Constraints:
+- Limited project timeline: The project must be completed within the current semester duration[cite: 1].
+- Ethical requirement: No real phishing emails are allowed; the system must be a controlled lab simulation[cite: 1].
+- Budget: Only free or open-source tools, frameworks, and services will be used[cite: 1].
+- Privacy: No real personal or corporate data will be used; only dummy accounts are permitted[cite: 1].
+
+Assumptions:
+- Skillset: Students/Team members have basic web development skills in Python/Flask and frontend tools[cite: 1].
+- Development Environment: VS Code, GitHub, and MySQL are available and functional for the team[cite: 1].
+- Infrastructure: The training portal can be hosted and tested on local servers or university lab environments[cite: 1].
+- Scenario Generation: Realistic phishing examples can be generated using templates or simple AI assistance[cite: 1].
