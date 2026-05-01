@@ -1,0 +1,10 @@
+2.3 Schedule Snapshot (Key Dates)[cite: 1]
+
+| Week | Key Date | Milestone | Notes |
+| :--- | :--- | :--- | :--- |
+| Week 2 | Charter submission | Project initiation | Assignment 1[cite: 1] |
+| Week 4 | Design ready | Architecture finalised | Internal review[cite: 1] |
+| Week 6 | Prototype ready | Core system working | Demo[cite: 1] |
+| Week 8 | Mid review | Improvements applied | Feedback stage[cite: 1] |
+| Week 10 | Final build | Complete system | Testing done[cite: 1] |
+| Week 12 | Submission | Final delivery | Assessment[cite: 1] |
