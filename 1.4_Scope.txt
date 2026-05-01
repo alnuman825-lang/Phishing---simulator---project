@@ -1,0 +1,11 @@
+In Scope:
+- Web portal development (Python/Flask + frontend)[cite: 1]
+- User login/authentication[cite: 1]
+- AI or rule-based phishing scenario generator[cite: 1]
+- Admin dashboard & reporting[cite: 1]
+- Logging & analytics[cite: 1]
+
+Out of Scope:
+- Sending real phishing emails[cite: 1]
+- Mobile app version[cite: 1]
+- Integration with corporate email systems[cite: 1]
