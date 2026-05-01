@@ -1,0 +1,8 @@
+Section 4 — Feasibility evidence / spike results[cite: 2]
+
+A technical "spike" was conducted to verify:
+1. Database Connectivity: Successful connection between Flask and MySQL[cite: 2].
+2. Authentication Logic: Verified that user sessions are maintained correctly[cite: 2].
+3. Feedback Loop: Confirmed that the system can trigger instant UI updates based on user input[cite: 2].
+
+Result: The core architecture is feasible and ready for full-scale development[cite: 2].
