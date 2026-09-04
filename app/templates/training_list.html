@@ -2,30 +2,109 @@
 {% block title %}Training — CyberShield{% endblock %}
 
 {% block content %}
-<h1>Phishing Awareness Training</h1>
-<p class="notice">
-  <strong>Simulated training exercise.</strong> Every message below is fictional
-  practice content created for this course — no real emails are sent and no
-  real accounts are involved. Read each one carefully and choose how you
-  would respond if it landed in your real inbox.
-</p>
+<div class="page-header">
+  <div>
+    <h1>Phishing Awareness Training</h1>
+    <p class="muted">
+      Complete each simulated scenario to test your ability to identify and
+      respond to phishing attempts.
+    </p>
+  </div>
+</div>
+
+<div class="notice">
+  <strong>Simulated training exercise.</strong>
+  Every message below is fictional practice content. No real emails are sent,
+  no real accounts are involved, and all scenarios are designed for awareness
+  training.
+</div>
+
+{% set total = scenarios|length %}
+{% set completed = completed_ids|length %}
+{% set remaining = total - completed %}
+{% set progress = ((completed / total) * 100)|round|int if total else 0 %}
+
+<div class="stats-grid">
+  <div class="stat-card">
+    <span class="stat-label">Total scenarios</span>
+    <strong class="stat-value">{{ total }}</strong>
+  </div>
+
+  <div class="stat-card">
+    <span class="stat-label">Completed</span>
+    <strong class="stat-value">{{ completed }}</strong>
+  </div>
+
+  <div class="stat-card">
+    <span class="stat-label">Remaining</span>
+    <strong class="stat-value">{{ remaining }}</strong>
+  </div>
+
+  <div class="stat-card">
+    <span class="stat-label">Progress</span>
+    <strong class="stat-value">{{ progress }}%</strong>
+  </div>
+</div>
+
+{% if total %}
+<div class="progress-container">
+  <div class="progress-header">
+    <strong>Training progress</strong>
+    <span>{{ completed }}/{{ total }} completed</span>
+  </div>
+
+  <div class="progress-bar">
+    <div class="progress-bar__fill" style="width: {{ progress }}%;"></div>
+  </div>
+</div>
+{% endif %}
 
 <div class="scenario-list">
   {% for scenario in scenarios %}
-    <div class="scenario-row">
-      <div>
+  <div class="scenario-row">
+    <div class="scenario-row__content">
+      <div class="scenario-row__title">
         <h3>{{ scenario.title }}</h3>
-        <span class="tag tag--{{ scenario.difficulty }}">{{ scenario.difficulty }}</span>
+
+        {% if scenario.id in completed_ids %}
+        <span class="tag tag--success">Completed</span>
+        {% else %}
+        <span class="tag tag--{{ scenario.difficulty }}">
+          {{ scenario.difficulty }}
+        </span>
+        {% endif %}
+      </div>
+
+      <div>
         <span class="tag">{{ scenario.category.replace('_', ' ') }}</span>
       </div>
+    </div>
+
+    <div class="scenario-row__action">
       {% if scenario.id in completed_ids %}
-        <a href="{{ url_for('training.feedback', scenario_id=scenario.id) }}" class="btn btn--secondary">Completed — view feedback</a>
+      <a href="{{ url_for('training.feedback', scenario_id=scenario.id) }}" class="btn btn--secondary">
+        View feedback
+      </a>
       {% else %}
-        <a href="{{ url_for('training.attempt', scenario_id=scenario.id) }}" class="btn btn--primary">Start scenario</a>
+      <a href="{{ url_for('training.attempt', scenario_id=scenario.id) }}" class="btn btn--primary">
+        Start scenario
+      </a>
       {% endif %}
     </div>
+  </div>
   {% else %}
-    <p class="muted">No training scenarios are available yet.</p>
+  <div class="notice">
+    <strong>No training scenarios are available.</strong>
+    Please check again later.
+  </div>
   {% endfor %}
 </div>
+
+{% if total and completed == total %}
+<div class="success-message">
+  <strong>Training complete.</strong>
+  You have completed all available phishing awareness scenarios.
+  Review your results to see your overall performance.
+</div>
+{% endif %}
 {% endblock %}
