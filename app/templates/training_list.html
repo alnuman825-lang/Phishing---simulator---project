@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Training — CyberShield{% endblock %}
+
+{% block content %}
+<h1>Phishing Awareness Training</h1>
+<p class="notice">
+  <strong>Simulated training exercise.</strong> Every message below is fictional
+  practice content created for this course — no real emails are sent and no
+  real accounts are involved. Read each one carefully and choose how you
+  would respond if it landed in your real inbox.
+</p>
+
+<div class="scenario-list">
+  {% for scenario in scenarios %}
+    <div class="scenario-row">
+      <div>
+        <h3>{{ scenario.title }}</h3>
+        <span class="tag tag--{{ scenario.difficulty }}">{{ scenario.difficulty }}</span>
+        <span class="tag">{{ scenario.category.replace('_', ' ') }}</span>
+      </div>
+      {% if scenario.id in completed_ids %}
+        <a href="{{ url_for('training.feedback', scenario_id=scenario.id) }}" class="btn btn--secondary">Completed — view feedback</a>
+      {% else %}
+        <a href="{{ url_for('training.attempt', scenario_id=scenario.id) }}" class="btn btn--primary">Start scenario</a>
+      {% endif %}
+    </div>
+  {% else %}
+    <p class="muted">No training scenarios are available yet.</p>
+  {% endfor %}
+</div>
+{% endblock %}

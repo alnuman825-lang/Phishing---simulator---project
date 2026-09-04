@@ -1,0 +1,41 @@
+{% extends "admin/admin_base.html" %}
+{% block title %}All Results — CyberShield Admin{% endblock %}
+
+{% block admin_content %}
+<h1>All Training Results</h1>
+
+{% if rows %}
+<table class="results-table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Scenario</th>
+      <th>Response</th>
+      <th>Outcome</th>
+      <th>Score</th>
+      <th>Completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for response, user, scenario in rows %}
+      <tr>
+        <td>{{ user.name }}</td>
+        <td>{{ scenario.title }}</td>
+        <td>{{ response.selected_response|capitalize }}</td>
+        <td>
+          {% if response.is_correct %}
+            <span class="badge badge--success">Correct</span>
+          {% else %}
+            <span class="badge badge--danger">Incorrect</span>
+          {% endif %}
+        </td>
+        <td>{{ response.score }} / 100</td>
+        <td>{{ response.submitted_at.strftime('%Y-%m-%d %H:%M UTC') }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+  <p class="muted">No training attempts have been recorded yet.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "admin/admin_base.html" %}
+{% block title %}Scenario Performance — CyberShield Admin{% endblock %}
+
+{% block admin_content %}
+<h1>Scenario Performance</h1>
+
+<table class="results-table">
+  <thead>
+    <tr>
+      <th>Scenario</th>
+      <th>Category</th>
+      <th>Attempts</th>
+      <th>Correct</th>
+      <th>Accuracy</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in scenario_stats %}
+      <tr>
+        <td>{{ row.scenario.title }}</td>
+        <td>{{ row.scenario.category.replace('_', ' ') }}</td>
+        <td>{{ row.attempt_count }}</td>
+        <td>{{ row.correct_count }}</td>
+        <td>{{ row.accuracy }}%</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<p class="muted">Low accuracy on a scenario may indicate its phishing indicators need to be taught more clearly, not just tested.</p>
+{% endblock %}

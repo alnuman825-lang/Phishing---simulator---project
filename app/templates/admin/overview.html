@@ -1,0 +1,25 @@
+{% extends "admin/admin_base.html" %}
+{% block title %}Admin Overview — CyberShield{% endblock %}
+
+{% block admin_content %}
+<h1>Admin Overview</h1>
+
+<div class="stats-grid">
+  <div class="stat-card">
+    <span class="stat-card__value">{{ stats.total_users }}</span>
+    <span class="stat-card__label">Registered users</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-card__value">{{ stats.total_scenarios }}</span>
+    <span class="stat-card__label">Active scenarios</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-card__value">{{ stats.total_responses }}</span>
+    <span class="stat-card__label">Total attempts</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-card__value">{{ stats.overall_accuracy }}%</span>
+    <span class="stat-card__label">Overall accuracy</span>
+  </div>
+</div>
+{% endblock %}

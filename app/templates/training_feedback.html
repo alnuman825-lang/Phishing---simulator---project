@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Feedback — CyberShield{% endblock %}
+
+{% block content %}
+<h1>{{ scenario.title }}</h1>
+
+<div class="feedback-card feedback-card--{{ 'correct' if response.is_correct else 'incorrect' }}">
+  <h2>{{ 'Correct response' if response.is_correct else 'Not quite right' }}</h2>
+  <p>You selected: <strong>{{ response.selected_response|capitalize }}</strong></p>
+  <p>The recommended response was: <strong>{{ scenario.correct_response|capitalize }}</strong></p>
+  <p>Score earned: <strong>{{ response.score }} / 100</strong></p>
+</div>
+
+<div class="explanation-box">
+  <h3>Why</h3>
+  <p>{{ scenario.explanation }}</p>
+</div>
+
+<a href="{{ url_for('training.index') }}" class="btn btn--primary">Continue to another scenario</a>
+<a href="{{ url_for('training.results') }}" class="btn btn--secondary">View my results</a>
+{% endblock %}

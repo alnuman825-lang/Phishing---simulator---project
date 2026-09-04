@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}My Results — CyberShield{% endblock %}
+
+{% block content %}
+<h1>My Training Results</h1>
+
+{% if rows %}
+<table class="results-table">
+  <thead>
+    <tr>
+      <th>Scenario</th>
+      <th>Your response</th>
+      <th>Outcome</th>
+      <th>Score</th>
+      <th>Completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for response, scenario in rows %}
+      <tr>
+        <td>{{ scenario.title }}</td>
+        <td>{{ response.selected_response|capitalize }}</td>
+        <td>
+          {% if response.is_correct %}
+            <span class="badge badge--success">Correct</span>
+          {% else %}
+            <span class="badge badge--danger">Incorrect</span>
+          {% endif %}
+        </td>
+        <td>{{ response.score }} / 100</td>
+        <td>{{ response.submitted_at.strftime('%Y-%m-%d %H:%M UTC') }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+  <p class="muted">You haven't completed any training scenarios yet.</p>
+  <a href="{{ url_for('training.index') }}" class="btn btn--primary">Start training</a>
+{% endif %}
+{% endblock %}

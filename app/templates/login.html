@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Log in — CyberShield{% endblock %}
+
+{% block content %}
+<div class="card card--form">
+  <h1>Log in</h1>
+  <form method="POST" novalidate>
+    {{ form.hidden_tag() }}
+
+    <div class="field">
+      {{ form.email.label }}
+      {{ form.email(class_="input") }}
+      {% for error in form.email.errors %}<p class="field-error">{{ error }}</p>{% endfor %}
+    </div>
+
+    <div class="field">
+      {{ form.password.label }}
+      {{ form.password(class_="input") }}
+      {% for error in form.password.errors %}<p class="field-error">{{ error }}</p>{% endfor %}
+    </div>
+
+    {{ form.submit(class_="btn btn--primary") }}
+  </form>
+  <p class="form-footer">No account yet? <a href="{{ url_for('auth.register') }}">Register</a></p>
+</div>
+{% endblock %}

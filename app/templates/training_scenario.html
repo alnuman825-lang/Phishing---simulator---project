@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}{{ scenario.title }} — CyberShield{% endblock %}
+
+{% block content %}
+<p class="notice notice--strong">
+  SIMULATED TRAINING SCENARIO — this is not a real email. Decide how you
+  would respond if this appeared in your real inbox.
+</p>
+
+<div class="mail-preview">
+  <div class="mail-preview__row"><strong>From:</strong> {{ scenario.sender_name }} &lt;{{ scenario.sender_email }}&gt;</div>
+  <div class="mail-preview__row"><strong>Subject:</strong> {{ scenario.subject }}</div>
+  <hr>
+  <div class="mail-preview__body">{{ scenario.body }}</div>
+</div>
+
+{% if scenario.context %}
+  <div class="context-box">
+    <strong>Context:</strong> {{ scenario.context }}
+  </div>
+{% endif %}
+
+<h2>What would you do?</h2>
+<form method="POST" class="response-form">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <button type="submit" name="selected_response" value="click" class="btn btn--option">1. Click / Open</button>
+  <button type="submit" name="selected_response" value="report" class="btn btn--option">2. Report</button>
+  <button type="submit" name="selected_response" value="ignore" class="btn btn--option">3. Ignore / Delete</button>
+</form>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — CyberShield{% endblock %}
+
+{% block content %}
+<h1>Welcome, {{ current_user.name }}</h1>
+
+<div class="stats-grid">
+  <div class="stat-card">
+    <span class="stat-card__value">{{ stats.scenarios_completed }} / {{ stats.total_scenarios }}</span>
+    <span class="stat-card__label">Scenarios completed</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-card__value">{{ stats.correct_count }}</span>
+    <span class="stat-card__label">Correct responses</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-card__value">{{ stats.incorrect_count }}</span>
+    <span class="stat-card__label">Incorrect responses</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-card__value">{{ stats.accuracy }}%</span>
+    <span class="stat-card__label">Accuracy</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-card__value">{{ stats.total_score }} / {{ stats.max_possible_score }}</span>
+    <span class="stat-card__label">Total score</span>
+  </div>
+</div>
+
+<div class="dashboard-actions">
+  <a href="{{ url_for('training.index') }}" class="btn btn--primary">Start training</a>
+  <a href="{{ url_for('training.results') }}" class="btn btn--secondary">View previous results</a>
+</div>
+{% endblock %}

@@ -1,0 +1,239 @@
+:root {
+  --color-bg: #0f172a;
+  --color-surface: #1e293b;
+  --color-text: #e2e8f0;
+  --color-muted: #94a3b8;
+  --color-primary: #38bdf8;
+  --color-primary-dark: #0ea5e9;
+  --color-danger: #f87171;
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --radius: 8px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--color-surface);
+  border-bottom: 1px solid #334155;
+}
+
+.navbar__brand a {
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.navbar__tag {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--color-muted);
+}
+
+.navbar__links a {
+  color: var(--color-text);
+  text-decoration: none;
+  margin-left: 1.25rem;
+  font-size: 0.9rem;
+}
+
+.navbar__links a:hover { color: var(--color-primary); }
+
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+.card--form { max-width: 420px; margin: 2rem auto; }
+
+.field { margin-bottom: 1rem; }
+.field label { display: block; margin-bottom: 0.35rem; font-size: 0.9rem; color: var(--color-muted); }
+
+.input {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius);
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: var(--color-text);
+  font-size: 1rem;
+}
+
+.field-error { color: var(--color-danger); font-size: 0.8rem; margin: 0.25rem 0 0; }
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius);
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn--primary { background: var(--color-primary); color: #0f172a; font-weight: 600; }
+.btn--primary:hover { background: var(--color-primary-dark); }
+.btn--secondary { background: transparent; color: var(--color-text); border: 1px solid #334155; }
+.btn--disabled { opacity: 0.5; pointer-events: none; }
+
+.form-footer { margin-top: 1rem; font-size: 0.9rem; color: var(--color-muted); }
+.form-footer a { color: var(--color-primary); }
+
+.flash-list { margin-bottom: 1.5rem; }
+.flash { padding: 0.75rem 1rem; border-radius: var(--radius); margin-bottom: 0.5rem; font-size: 0.9rem; }
+.flash--success { background: rgba(74,222,128,0.15); color: var(--color-success); }
+.flash--danger { background: rgba(248,113,113,0.15); color: var(--color-danger); }
+.flash--warning { background: rgba(251,191,36,0.15); color: var(--color-warning); }
+.flash--info { background: rgba(56,189,248,0.15); color: var(--color-primary); }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.stat-card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.stat-card__value { display: block; font-size: 1.8rem; font-weight: 700; color: var(--color-primary); }
+.stat-card__label { display: block; font-size: 0.8rem; color: var(--color-muted); margin-top: 0.25rem; }
+
+.dashboard-actions { display: flex; gap: 1rem; margin-top: 1.5rem; }
+.muted { color: var(--color-muted); font-size: 0.85rem; }
+
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+/* --- Stage 2: training UI --- */
+
+.notice {
+  background: rgba(56,189,248,0.1);
+  border-left: 3px solid var(--color-primary);
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.notice--strong {
+  background: rgba(251,191,36,0.12);
+  border-left-color: var(--color-warning);
+  font-weight: 600;
+}
+
+.scenario-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
+
+.scenario-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+}
+
+.scenario-row h3 { margin: 0 0 0.35rem; }
+
+.tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  color: var(--color-muted);
+  border: 1px solid #334155;
+  border-radius: 999px;
+  padding: 0.1rem 0.6rem;
+  margin-right: 0.35rem;
+  text-transform: capitalize;
+}
+
+.mail-preview {
+  background: #fff;
+  color: #111;
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin: 1.25rem 0;
+  font-family: Georgia, serif;
+}
+
+.mail-preview__row { margin-bottom: 0.4rem; font-size: 0.95rem; }
+.mail-preview__body { white-space: pre-wrap; line-height: 1.5; margin-top: 1rem; }
+
+.context-box {
+  background: var(--color-surface);
+  border-left: 3px solid var(--color-muted);
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.response-form { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.btn--option { background: var(--color-surface); color: var(--color-text); border: 1px solid #334155; }
+.btn--option:hover { border-color: var(--color-primary); color: var(--color-primary); }
+
+.feedback-card { border-radius: var(--radius); padding: 1.5rem; margin: 1.25rem 0; }
+.feedback-card--correct { background: rgba(74,222,128,0.12); }
+.feedback-card--incorrect { background: rgba(248,113,113,0.12); }
+
+.explanation-box {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.results-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+.results-table th, .results-table td {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid #334155;
+  font-size: 0.9rem;
+}
+
+.badge { padding: 0.15rem 0.6rem; border-radius: 999px; font-size: 0.75rem; }
+.badge--success { background: rgba(74,222,128,0.15); color: var(--color-success); }
+.badge--danger { background: rgba(248,113,113,0.15); color: var(--color-danger); }
+
+/* --- Stage 3: admin UI --- */
+
+.admin-nav {
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #334155;
+}
+
+.admin-nav a {
+  color: var(--color-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.admin-nav a:hover { color: var(--color-primary); }
