@@ -1,0 +1,123 @@
+{% extends "admin/admin_base.html" %}
+{% block title %}Analytics — CyberShield Admin{% endblock %}
+
+{% block admin_content %}
+<h1>Analytics</h1>
+
+<h2>Performance by Category</h2>
+{% if category_breakdown %}
+<table class="results-table">
+  <thead>
+    <tr><th>Category</th><th>Attempts</th><th>Correct</th><th>Accuracy</th></tr>
+  </thead>
+  <tbody>
+    {% for row in category_breakdown %}
+      <tr>
+        <td>{{ row.label.replace('_', ' ') }}</td>
+        <td>{{ row.attempts }}</td>
+        <td>{{ row.correct }}</td>
+        <td>{{ row.accuracy }}%</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+  <p class="muted">No training attempts recorded yet.</p>
+{% endif %}
+
+<h2>Performance by Difficulty</h2>
+{% if difficulty_breakdown %}
+<table class="results-table">
+  <thead>
+    <tr><th>Difficulty</th><th>Attempts</th><th>Correct</th><th>Accuracy</th></tr>
+  </thead>
+  <tbody>
+    {% for row in difficulty_breakdown %}
+      <tr>
+        <td>{{ row.label|capitalize }}</td>
+        <td>{{ row.attempts }}</td>
+        <td>{{ row.correct }}</td>
+        <td>{{ row.accuracy }}%</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+  <p class="muted">No training attempts recorded yet.</p>
+{% endif %}
+
+<h2>Scenario Library — Indicator Coverage</h2>
+<p class="muted">
+  Computed by running the rule-based phishing indicator analyzer (the same
+  engine used on the training feedback page) against every active
+  scenario's own text, independent of user responses — this measures the
+  scenario library itself, not learner performance.
+</p>
+
+<div class="stats-grid">
+  <div class="stat-card">
+    <span class="stat-card__value">{{ total_active_scenarios }}</span>
+    <span class="stat-card__label">Active scenarios analysed</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-card__value">{{ avg_risk_score }}</span>
+    <span class="stat-card__label">Average risk score</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-card__value">{{ risk_level_counts.get('high', 0) }}</span>
+    <span class="stat-card__label">High-risk scenarios</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-card__value">{{ risk_level_counts.get('low', 0) }}</span>
+    <span class="stat-card__label">Low-risk scenarios</span>
+  </div>
+</div>
+
+<h3>Indicator frequency across the library</h3>
+{% if indicator_breakdown %}
+<table class="results-table">
+  <thead>
+    <tr><th>Indicator</th><th>Scenarios containing it</th></tr>
+  </thead>
+  <tbody>
+    {% for indicator, count in indicator_breakdown %}
+      <tr>
+        <td>{{ indicator }}</td>
+        <td>{{ count }} / {{ total_active_scenarios }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+  <p class="muted">No active scenarios to analyse.</p>
+{% endif %}
+
+<h2>Per-Scenario Risk &amp; Performance</h2>
+<table class="results-table">
+  <thead>
+    <tr>
+      <th>Scenario</th>
+      <th>Attempts</th>
+      <th>Accuracy</th>
+      <th>Analyzer risk level</th>
+      <th>Risk score</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in scenario_analytics %}
+      <tr>
+        <td>{{ row.scenario.title }}</td>
+        <td>{{ row.attempt_count }}</td>
+        <td>{{ row.accuracy }}%</td>
+        <td>
+          <span class="badge badge--{{ 'danger' if row.risk_level == 'high' else ('warning' if row.risk_level == 'medium' else 'success') }}">
+            {{ row.risk_level|capitalize }}
+          </span>
+        </td>
+        <td>{{ row.risk_score }}/100</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<p class="muted">A scenario with low learner accuracy but a low analyzer risk score may indicate its phishing indicators are too subtle and worth revising.</p>
+{% endblock %}

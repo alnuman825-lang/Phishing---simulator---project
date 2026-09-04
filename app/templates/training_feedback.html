@@ -16,6 +16,19 @@
   <p>{{ scenario.explanation }}</p>
 </div>
 
+<div class="analysis-box">
+  <h3>Automated Indicator Analysis</h3>
+  <p>
+    Risk level: <span class="badge badge--{{ 'danger' if analysis.risk_level == 'high' else ('warning' if analysis.risk_level == 'medium' else 'success') }}">{{ analysis.risk_level|capitalize }}</span>
+    (score {{ analysis.risk_score }}/100)
+  </p>
+  <ul>
+    {% for finding in analysis.findings %}
+      <li><strong>{{ finding.indicator }}</strong> — {{ finding.explanation }}</li>
+    {% endfor %}
+  </ul>
+</div>
+
 <a href="{{ url_for('training.index') }}" class="btn btn--primary">Continue to another scenario</a>
 <a href="{{ url_for('training.results') }}" class="btn btn--secondary">View my results</a>
 {% endblock %}

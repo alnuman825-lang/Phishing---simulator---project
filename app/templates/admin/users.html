@@ -11,6 +11,7 @@
       <th>Email</th>
       <th>Role</th>
       <th>Registered</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +21,7 @@
         <td>{{ user.email }}</td>
         <td>{{ user.role }}</td>
         <td>{{ user.created_at.strftime('%Y-%m-%d %H:%M UTC') }}</td>
+        <td><a href="{{ url_for('admin.user_detail', user_id=user.id) }}">View progress</a></td>
       </tr>
     {% endfor %}
   </tbody>

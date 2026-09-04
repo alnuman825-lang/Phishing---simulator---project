@@ -21,6 +21,7 @@ from sqlalchemy.exc import IntegrityError
 from app.extensions import db
 from app.models.scenario import Scenario
 from app.models.response import Response
+from app.services.phishing_analyzer import PhishingAnalyzer
 
 training_bp = Blueprint("training", __name__)
 
@@ -106,7 +107,17 @@ def feedback(scenario_id):
         flash("You haven't attempted that scenario yet.", "warning")
         return redirect(url_for("training.index"))
 
-    return render_template("training_feedback.html", scenario=scenario, response=response)
+    # Rule-based indicator analysis of the scenario's own message text.
+    # This is independent of which option the user picked -- it's shown
+    # after submission so it can't be used to guess the answer first.
+    analysis = PhishingAnalyzer().analyze(f"{scenario.subject}\n{scenario.body}")
+
+    return render_template(
+        "training_feedback.html",
+        scenario=scenario,
+        response=response,
+        analysis=analysis,
+    )
 
 
 @training_bp.route("/results")

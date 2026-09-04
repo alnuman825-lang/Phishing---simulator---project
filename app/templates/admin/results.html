@@ -2,7 +2,10 @@
 {% block title %}All Results — CyberShield Admin{% endblock %}
 
 {% block admin_content %}
-<h1>All Training Results</h1>
+<div class="results-header">
+  <h1>All Training Results</h1>
+  <a href="{{ url_for('admin.export_results_csv') }}" class="btn btn--secondary">Export CSV</a>
+</div>
 
 {% if rows %}
 <table class="results-table">

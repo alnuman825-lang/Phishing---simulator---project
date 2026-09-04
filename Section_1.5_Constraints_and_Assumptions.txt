@@ -8,6 +8,6 @@ Constraints:
 
 Assumptions:
 - Skillset: Students/Team members have basic web development skills in Python/Flask and frontend tools[cite: 1].
-- Development Environment: VS Code, GitHub, and MySQL are available and functional for the team[cite: 1].
+- Development Environment: VS Code, GitHub, and PostgreSQL are available and functional for the team[cite: 1].
 - Infrastructure: The training portal can be hosted and tested on local servers or university lab environments[cite: 1].
 - Scenario Generation: Realistic phishing examples can be generated using templates or simple AI assistance[cite: 1].

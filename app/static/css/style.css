@@ -219,6 +219,16 @@ body {
 .badge { padding: 0.15rem 0.6rem; border-radius: 999px; font-size: 0.75rem; }
 .badge--success { background: rgba(74,222,128,0.15); color: var(--color-success); }
 .badge--danger { background: rgba(248,113,113,0.15); color: var(--color-danger); }
+.badge--warning { background: rgba(251,191,36,0.15); color: var(--color-warning); }
+
+.analysis-box {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.analysis-box ul { margin: 0.5rem 0 0; padding-left: 1.25rem; }
+.analysis-box li { margin-bottom: 0.5rem; font-size: 0.9rem; }
 
 /* --- Stage 3: admin UI --- */
 
@@ -237,3 +247,14 @@ body {
 }
 
 .admin-nav a:hover { color: var(--color-primary); }
+
+/* --- Admin analytics / results header --- */
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.results-header h1 { margin: 0; }
+h3 { color: var(--color-text); margin-top: 1.5rem; }

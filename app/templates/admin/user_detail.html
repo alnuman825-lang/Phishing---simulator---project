@@ -1,0 +1,66 @@
+{% extends "admin/admin_base.html" %}
+{% block title %}{{ target_user.name }} — CyberShield Admin{% endblock %}
+
+{% block admin_content %}
+<h1>{{ target_user.name }}</h1>
+<p class="muted">{{ target_user.email }} &middot; role: {{ target_user.role }} &middot; registered {{ target_user.created_at.strftime('%Y-%m-%d') }}</p>
+
+<div class="stats-grid">
+  <div class="stat-card">
+    <span class="stat-card__value">{{ stats.scenarios_completed }} / {{ stats.total_scenarios }}</span>
+    <span class="stat-card__label">Scenarios completed</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-card__value">{{ stats.correct_count }}</span>
+    <span class="stat-card__label">Correct responses</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-card__value">{{ stats.incorrect_count }}</span>
+    <span class="stat-card__label">Incorrect responses</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-card__value">{{ stats.accuracy }}%</span>
+    <span class="stat-card__label">Accuracy</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-card__value">{{ stats.total_score }} / {{ stats.max_possible_score }}</span>
+    <span class="stat-card__label">Total score</span>
+  </div>
+</div>
+
+<h2>Training History</h2>
+{% if rows %}
+<table class="results-table">
+  <thead>
+    <tr>
+      <th>Scenario</th>
+      <th>Response</th>
+      <th>Outcome</th>
+      <th>Score</th>
+      <th>Completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for response, scenario in rows %}
+      <tr>
+        <td>{{ scenario.title }}</td>
+        <td>{{ response.selected_response|capitalize }}</td>
+        <td>
+          {% if response.is_correct %}
+            <span class="badge badge--success">Correct</span>
+          {% else %}
+            <span class="badge badge--danger">Incorrect</span>
+          {% endif %}
+        </td>
+        <td>{{ response.score }} / 100</td>
+        <td>{{ response.submitted_at.strftime('%Y-%m-%d %H:%M UTC') }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+  <p class="muted">This user hasn't completed any training scenarios yet.</p>
+{% endif %}
+
+<p><a href="{{ url_for('admin.users') }}">&larr; Back to all users</a></p>
+{% endblock %}

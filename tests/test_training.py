@@ -135,6 +135,33 @@ def test_user_cannot_see_another_users_results(client, db):
     assert b"haven't completed" in resp.data
 
 
+def test_feedback_page_includes_indicator_analysis(client, db):
+    register(client)
+    login(client)
+    scenario = Scenario(
+        title="Urgent Account Alert",
+        sender_name="Tester",
+        sender_email="tester@example.com",
+        subject="URGENT: verify your password immediately",
+        body="Please confirm your account and payment details within 24 hours.",
+        context="Test context",
+        explanation="Test explanation",
+        correct_response="report",
+        difficulty="beginner",
+        category="general",
+    )
+    db.session.add(scenario)
+    db.session.commit()
+
+    client.post(f"/training/{scenario.id}", data={"selected_response": "report"}, follow_redirects=True)
+    resp = client.get(f"/training/{scenario.id}/feedback")
+
+    assert resp.status_code == 200
+    assert b"Automated Indicator Analysis" in resp.data
+    assert b"Urgency or pressure" in resp.data
+    assert b"Credential request" in resp.data
+
+
 def test_dashboard_updates_after_completing_scenario(client, db):
     register(client)
     login(client)

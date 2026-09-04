@@ -135,6 +135,45 @@ results/users tables (fine at prototype scale, would need it for a
 large class). Each scenario can only be attempted once per user
 (by design); scoring is binary (100/0), no partial credit.
 
+### Stage 4 — admin analytics, phishing analyzer integration, reporting
+- **Bugfix:** `/admin/analytics` existed as a route but referenced a
+  template that didn't exist (`admin/analytics.html`) and wasn't linked
+  from the admin nav — visiting it threw an uncaught `TemplateNotFound`
+  (500). The route is now implemented properly and linked in the nav.
+- `GET /admin/analytics` — performance broken down by scenario
+  **category** and **difficulty**, plus a scenario-library-wide report
+  from the **PhishingAnalyzer** service (average risk score, high/
+  medium/low risk scenario counts, and indicator frequency across all
+  active scenarios) and a per-scenario table combining learner accuracy
+  with the analyzer's risk rating for that scenario's own text — the
+  first place the analyzer is used outside a single learner's feedback
+  page.
+- `GET /admin/users/<id>` — per-user drill-down: one user's full
+  progress stats and training history, for admins reviewing a specific
+  person rather than the flat all-results table. Linked from
+  `/admin/users`.
+- `GET /admin/results/export.csv` — downloads every recorded response
+  (user, scenario, category, difficulty, response, correctness, score,
+  timestamp) as CSV, for offline reporting/analysis.
+- 9 new tests: analytics page loads (regression test for the fixed
+  bug), category/difficulty breakdown renders, analyzer indicators
+  appear on the analytics page, user-detail shows the right user's
+  history, user-detail does **not** leak another user's data, CSV
+  export has the right headers/content-type/rows, and the three new
+  routes are added to the existing "non-admin gets 403" coverage.
+- No database schema changes — analytics are computed at request time
+  from the existing `users`/`scenarios`/`responses` tables plus the
+  analyzer running against scenario text; no new migration needed.
+
+**Still not implemented (documented gaps, deliberately deferred):**
+notifications, gamification/badges, and audit logging — these were
+already flagged as incomplete in the team's own progress report and
+are "Could"-priority (R08) or outside the R01–R08 baseline, not P0/P1
+for a working submission. Scenario retries (R08) remain out of scope
+for the same reason: it's explicitly the lowest MoSCoW priority, and
+allowing retries would need a product decision (unlimited vs. capped,
+same vs. new scenario) beyond a code change.
+
 ## Creating an admin account
 
 ```bash
@@ -234,8 +273,11 @@ scenario.
 | `/training/<id>/feedback` | GET | Yes | View your own graded result for that scenario |
 | `/results` | GET | Yes | Your full training history |
 | `/admin/` | GET | Admin only | Platform-wide overview stats |
+| `/admin/analytics` | GET | Admin only | Category/difficulty breakdown + phishing analyzer library report |
 | `/admin/users` | GET | Admin only | List all registered users (no password hashes) |
+| `/admin/users/<id>` | GET | Admin only | One user's full progress + history |
 | `/admin/results` | GET | Admin only | Every user's every training attempt |
+| `/admin/results/export.csv` | GET | Admin only | CSV download of every recorded response |
 | `/admin/scenarios` | GET | Admin only | Per-scenario attempt count / accuracy |
 
 ## Running the tests
@@ -250,7 +292,10 @@ pytest
 pytest -v
 ```
 
-All 24 tests (7 Stage 1 + 10 Stage 2 + 7 Stage 3) should pass.
+All 36 tests should pass: 7 in `test_auth.py`, 11 in `test_training.py`
+(includes the phishing-analyzer feedback integration), 14 in
+`test_admin.py` (includes Stage 4 analytics/user-detail/CSV export),
+4 in `test_phishing_analyzer.py`.
 
 ## Environment variables reference
 
@@ -271,6 +316,7 @@ All 24 tests (7 Stage 1 + 10 Stage 2 + 7 Stage 3) should pass.
 5. Phishing scenario module *(Stage 2 — this delivery)*
 6. Response and scoring *(Stage 2 — this delivery)*
 7. Results/progress *(Stage 2 — this delivery)*
-8. Admin functionality *(Stage 3 — this delivery)*
-9. Testing (expanded) *(Stage 2 & 3 — this delivery)*
+8. Admin functionality *(Stage 3)*
+9. Testing (expanded) *(Stage 2, 3 & 4)*
 10. Documentation/UI improvements — ongoing
+11. Admin analytics, phishing analyzer integration, CSV reporting *(Stage 4 — this delivery)*

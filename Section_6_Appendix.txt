@@ -7,5 +7,5 @@ Section 6 — Appendix[cite: 2]
 
 6b. Supporting Evidence:
 - Evidence 1: ERD showing relational links between training data and users[cite: 2].
-- Evidence 2: Screenshot of the initial Flask-MySQL connection proof[cite: 2].
+- Evidence 2: Screenshot of the initial Flask-PostgreSQL connection proof[cite: 2].
 - Evidence 3: Detailed Work Breakdown Structure (WBS) for Assignment 3[cite: 2].

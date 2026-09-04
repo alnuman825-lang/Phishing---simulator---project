@@ -11,4 +11,4 @@ Section 5 — Updated Project Controls[cite: 2]
 
 5c. Change Log:
 - 28-Apr-2026: Scope refined to focus on 5 core phishing types[cite: 2].
-- 29-Apr-2026: Finalized MySQL as the primary database for data persistence[cite: 2].
+- 29-Apr-2026: Finalized PostgreSQL as the primary database for data persistence[cite: 2].
