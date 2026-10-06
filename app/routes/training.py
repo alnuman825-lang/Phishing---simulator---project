@@ -97,7 +97,7 @@ def attempt(scenario_id):
 @training_bp.route("/training/<int:scenario_id>/feedback")
 @login_required
 def feedback(scenario_id):
-    scenario = Scenario.query.get_or_404(scenario_id)
+    scenario = db.get_or_404(Scenario, scenario_id)
 
     response = Response.query.filter_by(
         user_id=current_user.id, scenario_id=scenario.id

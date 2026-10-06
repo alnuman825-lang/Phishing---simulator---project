@@ -74,7 +74,7 @@ def user_detail(user_id):
     """Per-user drill-down: one user's full training history and progress,
     the same way the user sees their own dashboard/results, but for admins
     reviewing a specific person's performance."""
-    target_user = User.query.get_or_404(user_id)
+    target_user = db.get_or_404(User, user_id)
 
     rows = (
         db.session.query(Response, Scenario)

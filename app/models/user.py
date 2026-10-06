@@ -2,7 +2,7 @@
 User model.
 
 Passwords are never stored in plaintext — only a salted hash
-(werkzeug's PBKDF2-based generate_password_hash) is persisted.
+(werkzeug's generate_password_hash, scrypt by default in Werkzeug 3) is persisted.
 """
 
 from datetime import datetime, timezone

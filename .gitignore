@@ -8,3 +8,5 @@ migrations/versions/*.pyc
 .pytest_cache/
 *.db
 .DS_Store
+.coverage
+htmlcov/
